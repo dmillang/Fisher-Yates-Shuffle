@@ -1,11 +1,18 @@
 <script>
-    const array = ['A','B','C','D','E','F','G','H'];
-    let i = array.length, j, temp;
-    while(--i > 0){
-        j = Math.floor(Math.random() * (i+1));
-        temp = array[j];
-        array[j] = array[i];
-        array[i] = temp;
+    Array.prototype.shuffle = function(){
+        let i = this.length, j, temp;
+        while(--i > 0){
+            j = Math.floor(Math.random() * (i+1));
+            temp = this[j];
+            this[j] = this[i];
+            this[i] = temp;
+        }
+        return this;
     }
-    document.write(array);
+    
+
+    const array = ['A','B','C','D','E','F','G','H'];
+    let result = array.shuffle();
+
+    document.write(result);
 </script>
